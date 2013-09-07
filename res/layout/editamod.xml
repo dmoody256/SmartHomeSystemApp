@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" 
+    >
+
+    <RelativeLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentTop="true">
+	    
+	    <Button
+        android:id="@+id/eamback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Back" />
+
+    	<Button
+        android:id="@+id/eamhome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Home" />
+	</RelativeLayout>
+	
+	<RelativeLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    >
+    
+    <TextView
+        android:id="@+id/eammodnumtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Module Number" 
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        />
+
+    <TextView
+        android:id="@+id/eammodnumedit"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content" 
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/eammodnumtext"
+        android:gravity="center"
+        android:editable="false"
+        >
+
+        
+    </TextView>
+
+    <TextView
+        android:id="@+id/eamlocationtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location" 
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/eammodnumedit"/>
+
+    <EditText
+        android:id="@+id/eamlocationedit"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content" 
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/eamlocationtext"
+        android:maxLength="12"
+        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"/>
+    
+    
+
+    <CheckBox
+	        android:id="@+id/eammscheck"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+	        android:layout_below="@+id/eamlocationedit"
+	        android:text="Motion Controlled" />
+
+    
+
+	    <Button
+        android:id="@+id/eamdelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete Module" 
+        
+        android:layout_toLeftOf="@+id/eamlocationtext"
+        android:layout_below="@+id/eammscheck"
+        
+        />
+	    
+	    <Button
+        android:id="@+id/eameditusers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit User" 
+        android:layout_below="@+id/eammscheck"
+        android:layout_toRightOf="@+id/eamlocationtext"
+        />
+
+	    
+	    
+	 </RelativeLayout>
+
+</LinearLayout>

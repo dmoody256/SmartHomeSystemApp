@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" 
+    >
+
+    <RelativeLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentTop="true">
+	    
+	    <Button
+        android:id="@+id/ruback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Back" />
+
+    	<Button
+        android:id="@+id/ruhome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Home" />
+	</RelativeLayout>
+	
+	<RelativeLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    >
+    
+    <TextView
+        android:id="@+id/ruusernametext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username" 
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        />
+
+    <EditText
+        android:id="@+id/ruusernameedit"
+        android:maxLength="12"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content" 
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/ruusernametext"
+        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
+        >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/rupasstext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password" 
+        
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/ruusernameedit"/>
+
+    <EditText
+        android:id="@+id/rupassedit"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content" 
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/rupasstext"
+        android:maxLength="12"
+        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"/>
+
+    <TextView
+        android:id="@+id/ruemailtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name" 
+       
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/rupassedit"/>
+
+    <EditText
+        android:id="@+id/ruemailedit"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content" 
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/ruemailtext"
+         android:maxLength="25"
+        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"/>
+
+	    <Button
+        android:id="@+id/rusubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register User Info" 
+        
+        android:layout_toLeftOf="@+id/ruemailtext"
+        android:layout_below="@+id/ruemailedit"
+        
+        />
+	    
+	    <Button
+        android:id="@+id/rueditusers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Current Users" 
+        android:layout_below="@+id/ruemailedit"
+        android:layout_toRightOf="@+id/ruemailtext"
+        />
+	    
+	 </RelativeLayout>
+
+</LinearLayout>

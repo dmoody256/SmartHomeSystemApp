@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, SmartHomeSystemActivity!</string>
+    <string name="app_name">SmartHomeSystem</string>
+
+</resources>

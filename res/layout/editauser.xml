@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" 
+    >
+
+    <RelativeLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentTop="true">
+	    
+	    <Button
+        android:id="@+id/eauback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Back" />
+
+    	<Button
+        android:id="@+id/eauhome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Home" />
+	</RelativeLayout>
+	
+	<RelativeLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    >
+    
+    <TextView
+        android:id="@+id/eauusernametext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username" 
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        />
+
+    <TextView
+        android:id="@+id/eauusernameedit"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content" 
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/eauusernametext"
+        android:gravity="center"
+        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
+        android:editable="false"
+        >
+
+        
+    </TextView>
+
+    <TextView
+        android:id="@+id/eaupasstext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password" 
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/eauusernameedit"/>
+
+    <EditText
+        android:id="@+id/eaupassedit"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content" 
+        android:layout_centerHorizontal="true"
+        android:maxLength="12"
+        android:layout_below="@+id/eaupasstext"
+        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"/>
+
+    <TextView
+        android:id="@+id/eauemailtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="E-mail" 
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/eaupassedit"/>
+
+    <EditText
+        android:id="@+id/eauemailedit"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content" 
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/eauemailtext"
+        android:maxLength="25"
+        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"/>
+
+	    <Button
+        android:id="@+id/eaudelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete User" 
+        
+        android:layout_toLeftOf="@+id/eauemailtext"
+        android:layout_below="@+id/eauemailedit"
+        
+        />
+	    
+	    <Button
+        android:id="@+id/eaueditusers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit User" 
+        android:layout_below="@+id/eauemailedit"
+        android:layout_toRightOf="@+id/eauemailtext"
+        />
+	    
+	 </RelativeLayout>
+
+</LinearLayout>
