@@ -187,10 +187,11 @@ public class HomeStatusActivity extends Activity{
         
     	/*
     	 * adding a module will disable the update and add module buttons to prevent the user from sending to many request
-    	 * to the web server and causing problems. The AddModuleTask will run the update task when it is finish telling the web server
-    	 * to add a new module. It will also check to make sure that there are less then 10 modules, as the web server will began to slow down
-    	 * if there are 10 or modules in the system. The URL that is created is a default module string used in the web server text files.
-    	 * NextModNumber is +1 of the current modules in the system and checks the current number of modules. 
+    	 * to the web server and causing problems. The AddModuleTask will run the update task when it is finish telling the 
+         * web server to add a new module. It will also check to make sure that there are less then 10 modules, as the web 
+         * server will began to slow down if there are 10 or modules in the system. The URL that is created is a default 
+         * module string used in the web server text files. NextModNumber is +1 of the current modules in the system and 
+         * checks the current number of modules. 
          */	
     	AddModButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -309,8 +310,8 @@ public class HomeStatusActivity extends Activity{
 	    	
 	    	/*
 	    	 * After the command is sent,it will automatically update, to keep the system current.
-	    	 * however the amount of updates needs to be limited, so a boolean is used to disable the update if there is already an update
-	    	 * processes. 
+	    	 * however the amount of updates needs to be limited, so a boolean is used to disable the update if 
+             * there is already an update process. 
 	    	 */
 	    	if(Values.clickdisable == true){ // Check to make sure that there are't already ongoing updates
             
@@ -328,17 +329,18 @@ public class HomeStatusActivity extends Activity{
 	private class UpdateModules extends AsyncTask<String, String, Cursor> {
 			
 		/*
-		 * this class updates the modules by sending a status update request, which tells the web server to get the modules text file
-		 * ready to send an update. Then it request the modules text file from the web sever. It is hard coded to receive 2 URLs; always
-		 * the status update first, then the module text file request 2nd.
+		 * this class updates the modules by sending a status update request, which tells the web server to get the modules 
+         * text file ready to send an update. Then it request the modules text file from the web sever. It is hard coded to 
+         * receive 2 URLs; always the status update first, then the module text file request 2nd.
 		 */
 		protected Cursor doInBackground(String... URItoSend) {
 			
 			/*
 			 * The do in background portion use standard apache http get request to communicate with the web server.
 			 * For the status update the request is sent normally and then a response is receive, but I have not set up any
-			 * any use for it yet, although it can be used for error handling, to make sure the web server is communicating correctly.
-			 * The text file received from the web server is handled slightly differently and is described in more detail below.
+			 * any use for it yet, although it can be used for error handling, to make sure the web server is communicating 
+             * correctly. The text file received from the web server is handled slightly differently and is described in more 
+             * detail below.
 			 */
 			int count = URItoSend.length;
 			for (int i = 0; i < count; i++) { // For each URI pass to this AsyncTask (first the update status command
@@ -447,8 +449,8 @@ public class HomeStatusActivity extends Activity{
 	            		    		DBModSSStatus = "Door/Window\nCLOSED";
           		                }
                                 
-	            		    	mySQLiteAdapter.InsertMod(DBModNumber, DBModLocation,  // The data is ready to be inserted into
-                                    DBModMSTimed, DBModRelayStatus, DBModManualStatus, // the database
+	            		    	mySQLiteAdapter.InsertMod(DBModNumber, DBModLocation,  // The data is ready to be inserted 
+                                    DBModMSTimed, DBModRelayStatus, DBModManualStatus, // into the database
                                     DBModMSStatus, DBModSSStatus);		            		    
 	            		    } // End of for each module loop
 
