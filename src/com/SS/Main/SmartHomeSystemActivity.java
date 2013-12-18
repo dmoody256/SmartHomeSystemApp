@@ -240,135 +240,6 @@ public class SmartHomeSystemActivity extends Activity {
             new UpdateUsers().execute("http://" + Values.CurrentIP + "/USER.txt");
         }
     }
-   
-package com.SS.Main;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URI;
-import java.net.URISyntaxException;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-
-import android.app.Activity;
-import android.content.Intent;
-import android.database.Cursor;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
-import android.widget.Toast;
-
-/**
- * 
- * @author Daniel Moody
- * 
- * Code Description 
- * Written by Daniel Moody - 11/15/2012
- * 
- * This activity is used to show the master user a current list of all users that are in the system.
- * This list will update itself at the begining of this activity so to make itself current with the 
- * of the web server. This list will then allow the user to select another user to make changes to there
- * user info or delete the user in the edit a user screen. This activity uses an async task to talk to
- * the web server and retirve the latest list of users.
- * 
- */
-
-public class EditUsersActivity extends Activity {
-
-    ListView UserList;              // The listview that will display the current users
-    Button EditUserBackButton;      // A button to return to the previous screen
-    Button EditUserHomeButton;      // A button to return to the home screen
-    SQLiteAdapter mySQLiteAdapter;  // The database connection
-    
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////Activity Initialization
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState); // Create the instace of this activity
-        setContentView(R.layout.editusers); // Connect this activity to the GUI layout
-        
-        EditUserBackButton = (Button)findViewById(R.id.euback); // Connect the activity objects 
-        EditUserHomeButton = (Button)findViewById(R.id.euhome); // to the GUI objects
-        UserList = (ListView)findViewById(R.id.euuserlist); 
-        
-        mySQLiteAdapter = new SQLiteAdapter(this);   // Create the database connection
-        
-        mySQLiteAdapter.openToRead();                // Open the database for reading
-        
-        Cursor cursor = mySQLiteAdapter.queueAll();  // Get a cursor of all info in the database
-        startManagingCursor(cursor);                 // and set a manager for it
-
-        String[] from = new String[]{SQLiteAdapter.KEY_USER}; // select for usernames
-           int[]   to = new int[]   {android.R.id.text1};     // connect the username to a spot in the listview
-
-        SimpleCursorAdapter cursorAdapter =          // Create the cursor adapter to connect ot the list
-         new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, cursor, from, to);
-        UserList.setAdapter(cursorAdapter);
-        
-        final String[] usernames = mySQLiteAdapter.getUsernames();  // get the usernames for later
-        
-        mySQLiteAdapter.close(); // we have all the info we need now close the database
-        
-        new UpdateUsers().execute("http://" + Values.CurrentIP + "/USER.txt"); // Update the current list ot that which is on the web server
-        
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////Activity Buttons
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        /*
-         * This button is used to go back to the previous screen, which in the case will usually be the Home screen.
-         * This function sets the click listener that will execute each time the button is clicked. In this case it 
-         * create an intent to start the new activty.
-         */
-        EditUserBackButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                
-                Intent RegisterIntent = new Intent(getApplicationContext(), RegisterUserActivity.class);
-                startActivity(RegisterIntent); // send the user to the previous screen
-                finish();
-            }
-        });
-
-        /*
-         * This button is used to go back to the home screen. This function sets the click listener that will execute each 
-         * time the button is clicked. In this case it create an intent to start the new activty to the Home Screen.
-         */
-        EditUserHomeButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                        
-                Intent SmartHomeSystemIntent = new Intent(getApplicationContext(), SmartHomeSystemActivity.class);
-                startActivity(SmartHomeSystemIntent); // send the user to the home screen
-                finish();
-            }
-        });
-        
-        /*
-         * This button will allow the user to click a user form the user list in order to switch them to the edit screen. It records the current
-         * selection into a global liek variable. Whent eh user gets to edit screen it will know which one to edit.
-         */
-        UserList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                
-                Values.UserToBeEdited = usernames[position]; // save the user that was clicked
-                Intent EditAUserIntent = new Intent(getApplicationContext(), EditAUserActivity.class);
-                startActivity(EditAUserIntent); // send the user to the edit user screen
-                finish();
-            }
-        });
-    }
     
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////UpdateUsers AsyncTask
@@ -450,7 +321,7 @@ public class EditUsersActivity extends Activity {
                         
                         mySQLiteAdapter.UserInsert(DBUsername, DBPass, DBName);
                     }
-                    
+                
                     mySQLiteAdapter.close(); // The data has been inserted now close the database
 
                 } catch (URISyntaxException e) {
