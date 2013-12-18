@@ -179,7 +179,13 @@ public class EditAModuleActivity extends Activity{
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////EditDelModule AsyncTask
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    
+    /* 
+     * This private class is an asynch task that is used to communicate with the web server in a seperate thread.
+     * this was made standard in the later Android OS versions, to prevent a bad conection from freezing up the 
+     * the user interface. This Async task creates an HTTP connection to teh web server and sends the command
+     * corresponding data through the internet.
+     */
     private class EditDelModule extends AsyncTask<String, Void, Void> {
         protected Void doInBackground(String... URItoSend) {
         
