@@ -139,93 +139,94 @@ public class EditUsersActivity extends Activity {
     private class UpdateUsers extends AsyncTask<String, String, String> {
         protected String doInBackground(String... URItoSend) {
         
-             int count = URItoSend.length;
-             for (int i = 0; i < count; i++) { // for each URI passed to this async task
+            int count = URItoSend.length;
+            for (int i = 0; i < count; i++) { // for each URI passed to this async task
              
-                 BufferedReader in = null;
+                BufferedReader in = null;
                     
-                    try {
-                        HttpClient client = new DefaultHttpClient();     // Create the new client and request 
-                        HttpGet request = new HttpGet();                 // objects
-            
-                        request.setURI(new URI(URItoSend[i]));           // Set the URI to the request object
-                        HttpResponse response = client.execute(request); // Send the URI to access the web server
-              
-                        // Read in the response data to the buffer from the web server
-                        in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+                try {
+                    HttpClient client = new DefaultHttpClient();     // Create the new client and request 
+                    HttpGet request = new HttpGet();                 // objects
+        
+                    request.setURI(new URI(URItoSend[i]));           // Set the URI to the request object
+                    HttpResponse response = client.execute(request); // Send the URI to access the web server
+          
+                    // Read in the response data to the buffer from the web server
+                    in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+                    
+                    StringBuffer sb = new StringBuffer("");      // We will load the data into a string buffer
+                    
+                    if(in == null){                              // if no response was recieved the we are 
+                        Values.DBconnection = false;             // unable to connect to  the web server
+                        return "Database Unavialable";
+                    }
+                    
+                    String line = "";                                 // create some variables for processing
+                    String NL = System.getProperty("line.separator"); // the response
+                    
+                    /*
+                     * When receiving the text file, it is received as a long string and then parsed according to
+                     * certain characters. At first the string read one line at a time. For some reason, I am not
+                     * sure why, but the web server was sending the text files with random bytes in between the actual
+                     * characters. My quick and dirty solution to this was to parse out only the characters that were 
+                     * correct.
+                     */
+                    while ((line = in.readLine()) != null) {
                         
-                        StringBuffer sb = new StringBuffer("");      // We will load the data into a string buffer
+                        StringBuilder builder = new StringBuilder(); // Create the string builder for the module list
                         
-                        if(in == null){                              // if no response was recieved the we are 
-                            Values.DBconnection = false;             // unable to connect to  the web server
-                            return "Database Unavialable";
+                        for(int k = 0; k < line.length(); k++){             // Here the for loop parses the response  
+                            if(line.charAt(k) < 128 && line.charAt(k) > 0){ // lookingfor characters that are 
+                                                                            // looking ASCII characters and not 
+                                builder.append(line.charAt(k));             // random bytes
+                            }
                         }
                         
-                        String line = "";                                 // create some variables for processing
-                        String NL = System.getProperty("line.separator"); // the response
-                        
-                        /*
-                         * When receiving the text file, it is received as a long string and then parsed according to
-                         * certain characters. At first the string read one line at a time. For some reason, I am not
-                         * sure why, but the web server was sending the text files with random bytes in between the actual
-                         * characters. My quick and dirty solution to this was to parse out only the characters that were 
-                         * correct.
-                         */
-                        while ((line = in.readLine()) != null) {
-                            
-                            StringBuilder builder = new StringBuilder(); // Create the string builder for the module list
-                            
-                            for(int k = 0; k < line.length(); k++){             // Here the for loop parses the response  
-                                if(line.charAt(k) < 128 && line.charAt(k) > 0){ // lookingfor characters that are 
-                                                                                // looking ASCII characters and not 
-                                    builder.append(line.charAt(k));             // random bytes
-                                }
-                            }
-                            
-                            if(builder.length() != 0){   // Stick a new line at the end of the whole thing
-                                sb.append(builder + NL);
-                            }
-                        } // End of while read line in loop
-                        
-                        in.close(); // close the buffer
-                        
-                        String page = sb.toString();               // Create the module string
-                        Values.DatabaseStrings = page.split("\n"); // and parse it for each module
-                        
-                        Values.DBconnection = true;                // record that a connection was successful
-                        
-                        mySQLiteAdapter.openToWrite();             // Open the database and then 
-                        mySQLiteAdapter.deleteAllUsers();          // delete all the users to make room for 
-                                                                   // the new users
-                                                                   
-                        for(int m = 1; m < Values.DatabaseStrings.length; m++){ // for each string returned from
-                                                                                // web server database
-                            String[] User = Values.DatabaseStrings[m].split(" ");
-                            String DBUsername = User[0];           // Parse the data and place the user info
-                            String DBPass = User[1];               // into the database into the respective
-                            String DBName = User[2];               // fields
-                            
-                            mySQLiteAdapter.UserInsert(DBUsername, DBPass, DBName);
+                        if(builder.length() != 0){   // Stick a new line at the end of the whole thing
+                            sb.append(builder + NL);
                         }
+                    } // End of while read line in loop
+                    
+                    in.close(); // close the buffer
+                    
+                    String page = sb.toString();               // Create the module string
+                    Values.DatabaseStrings = page.split("\n"); // and parse it for each module
+                    
+                    Values.DBconnection = true;                // record that a connection was successful
+                    
+                    mySQLiteAdapter.openToWrite();             // Open the database and then 
+                    mySQLiteAdapter.deleteAllUsers();          // delete all the users to make room for 
+                                                               // the new users
+                                                               
+                    for(int m = 1; m < Values.DatabaseStrings.length; m++){ // for each string returned from
+                                                                            // web server database
+                        String[] User = Values.DatabaseStrings[m].split(" ");
+                        String DBUsername = User[0];           // Parse the data and place the user info
+                        String DBPass = User[1];               // into the database into the respective
+                        String DBName = User[2];               // fields
                         
-                        mySQLiteAdapter.close(); // The data has been inserted now close the database
- 
-                        } catch (URISyntaxException e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
+                        mySQLiteAdapter.UserInsert(DBUsername, DBPass, DBName);
+                    }
+                    
+                    mySQLiteAdapter.close(); // The data has been inserted now close the database
+
+                } catch (URISyntaxException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } 
+                finally {
+                    if (in != null) {
+                        try {
+                            in.close(); // make sure the buffer was closed
                         } catch (IOException e) {
-                            // TODO Auto-generated catch block
                             e.printStackTrace();
-                        } finally {
-                        if (in != null) {
-                            try {
-                                in.close(); // make sure the buffer was closed
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
                         }
                     }
                 }
+            }
             Values.DBconnection = false;   // obsolete code check if this should be deleted
             return "Database Unavialable";
         }
