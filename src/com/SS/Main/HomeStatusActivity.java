@@ -248,10 +248,10 @@ public class HomeStatusActivity extends Activity{
     private class CommandsTask extends AsyncTask<String, Void, String> {
          
         /*
-         *This class uses apache libraries to send an HTTP GET request to the web server.
-         *It also receives a response from the web server, but does not use the response.
-         *I plan to add some error handling by making sure that a correct response is received
-         *because the web server will echo get request.
+         * This class uses apache libraries to send an HTTP GET request to the web server.
+         * It also receives a response from the web server, but does not use the response.
+         * I plan to add some error handling by making sure that a correct response is received
+         * because the web server will echo get request.
          */
         protected String doInBackground(String... URItoSend) {
         
@@ -404,15 +404,15 @@ public class HomeStatusActivity extends Activity{
                          * parsed and the correct data is then entered into the database.
                          */
                         try{
-                             String DBModNumber, DBModLocation, DBModRelayStatus,    // These strings are used to store
+                            String DBModNumber, DBModLocation, DBModRelayStatus,    // These strings are used to store
                             String DBModManualStatus, DBModMSStatus, DBModSSStatus, // each of the mods corresponding
                             String DBModMSTimed;                                    // values to create insert string
-                             String[] Mod;                                           // for the database
+                            String[] Mod;                                           // for the database
                          
-                             mySQLiteAdapter.openToWrite();   // open the database and delete the current
-                             mySQLiteAdapter.deleteAllMods(); // database to inser current modules
+                            mySQLiteAdapter.openToWrite();   // open the database and delete the current
+                            mySQLiteAdapter.deleteAllMods(); // database to inser current modules
                              
-                             Values.NextModNumber = Integer.toString(Values.DatabaseStrings.length); // Get the current total 
+                            Values.NextModNumber = Integer.toString(Values.DatabaseStrings.length); // Get the current total 
                                                                                     // number of modules to update our Values
                             for(int j = 1; j < Values.DatabaseStrings.length; j++){ // For each string process the values 
                                                                                     // and insert into the database
@@ -447,7 +447,7 @@ public class HomeStatusActivity extends Activity{
                                     DBModSSStatus = "Door/Window\nOPEN";                                    
                                 } else {                                      
                                     DBModSSStatus = "Door/Window\nCLOSED";
-                                  }
+                                }
                                 
                                 mySQLiteAdapter.InsertMod(DBModNumber, DBModLocation,  // The data is ready to be inserted 
                                     DBModMSTimed, DBModRelayStatus, DBModManualStatus, // into the database
@@ -492,16 +492,15 @@ public class HomeStatusActivity extends Activity{
             
             mySQLiteAdapter.openToRead();                       // Open the database to get the new values
              
-             Cursor cursor = mySQLiteAdapter.queueAllMod();      // Get the cursor from the database
-             SimpleCursorAdapter adapter = 
+            Cursor cursor = mySQLiteAdapter.queueAllMod();      // Get the cursor from the database
+            SimpleCursorAdapter adapter = 
                 (SimpleCursorAdapter) ModuleList.getAdapter();  // Get the list adapter from the list to update it
             
-             adapter.changeCursor(cursor);                       // update the list to a new cursor
-             adapter.notifyDataSetChanged();                     // and notify it of changes
+            adapter.changeCursor(cursor);                       // update the list to a new cursor
+            adapter.notifyDataSetChanged();                     // and notify it of changes
         
             mySQLiteAdapter.close();                            // close the database
 
          }
     }//End of Update Modules Task
-
 }
