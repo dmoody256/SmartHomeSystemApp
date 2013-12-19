@@ -33,7 +33,8 @@
             android:layout_toRightOf="@+id/homestatusback"
             android:text="Update Status" 
             android:clickable="false"/>
-
+
+
         <Button
             android:id="@+id/hsaddmod"
             android:layout_width="wrap_content"
@@ -44,7 +45,8 @@
             android:text="Add Mod" />
 
     </RelativeLayout>
-
+
+
     <TextView
         android:id="@+id/hsinstruction"
         android:layout_width="match_parent"

@@ -1,19 +1,5 @@
 package com.SS.Main;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.util.Date;
-import java.io.*;
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.*;
-import android.view.View.OnClickListener;
-import android.widget.*;
-
-import android.os.Environment;
-import android.widget.Toast;
-
 /**
  * This class is used as a global variables class. with everything static, this class 
  * never has an instance and there has no construct, just simply holds values as 

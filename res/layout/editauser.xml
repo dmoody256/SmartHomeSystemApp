@@ -8,8 +8,7 @@
 
     <RelativeLayout
 	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:layout_alignParentTop="true">
+	    android:layout_height="wrap_content">
 	    
 	    <Button
         android:id="@+id/eauback"
@@ -17,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Back" />
+        android:text="@string/back" />
 
     	<Button
         android:id="@+id/eauhome"
@@ -25,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:text="Home" />
+        android:text="@string/home" />
 	</RelativeLayout>
 	
 	<RelativeLayout
@@ -33,83 +32,80 @@
 	    android:layout_height="wrap_content"
 	    >
     
-    <TextView
-        android:id="@+id/eauusernametext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Username" 
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        />
+    	<TextView
+	        android:id="@+id/eauusernametext"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/username" 
+	        android:layout_centerHorizontal="true"
+	        android:layout_alignParentTop="true"
+        	/>
 
-    <TextView
-        android:id="@+id/eauusernameedit"
-        android:layout_width="175dp"
-        android:layout_height="wrap_content" 
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/eauusernametext"
-        android:gravity="center"
-        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
-        android:editable="false"
-        >
+	    <EditText
+	        android:id="@+id/eauusernameedit"
+	        android:layout_width="175dp"
+	        android:layout_height="wrap_content" 
+	        android:layout_centerHorizontal="true"
+	        android:layout_below="@+id/eauusernametext"
+	        android:gravity="center"
+	        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
+	        android:inputType="none"
+	        />
+       
+	    <TextView
+	        android:id="@+id/eaupasstext"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+	        android:layout_below="@+id/eauusernameedit"
+	        android:text="@string/password" 
+	        />
 
-        
-    </TextView>
+	    <EditText
+	        android:id="@+id/eaupassedit"
+	        android:layout_width="175dp"
+	        android:layout_height="wrap_content" 
+	        android:layout_centerHorizontal="true"
+	        android:layout_below="@+id/eaupasstext"
+	        android:maxLength="12"
+	        android:inputType="text"
+	        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
+	        />
 
-    <TextView
-        android:id="@+id/eaupasstext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Password" 
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/eauusernameedit"/>
+	    <TextView
+	        android:id="@+id/eauemailtext"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+	        android:layout_below="@+id/eaupassedit"
+	        android:text="@string/email"/>
 
-    <EditText
-        android:id="@+id/eaupassedit"
-        android:layout_width="175dp"
-        android:layout_height="wrap_content" 
-        android:layout_centerHorizontal="true"
-        android:maxLength="12"
-        android:layout_below="@+id/eaupasstext"
-        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"/>
+	    <EditText
+	        android:id="@+id/eauemailedit"
+	        android:layout_width="175dp"
+	        android:layout_height="wrap_content" 
+	        android:layout_centerHorizontal="true"
+	        android:layout_below="@+id/eauemailtext"
+	        android:maxLength="25"
+	        android:inputType="text"
+	        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"/>
 
-    <TextView
-        android:id="@+id/eauemailtext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="E-mail" 
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/eaupassedit"/>
-
-    <EditText
-        android:id="@+id/eauemailedit"
-        android:layout_width="175dp"
-        android:layout_height="wrap_content" 
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/eauemailtext"
-        android:maxLength="25"
-        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"/>
-
-	    <Button
-        android:id="@+id/eaudelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Delete User" 
-        
-        android:layout_toLeftOf="@+id/eauemailtext"
-        android:layout_below="@+id/eauemailedit"
-        
-        />
+		    <Button
+	        android:id="@+id/eaudelete"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/deleteuser" 
+	        android:layout_toLeftOf="@+id/eauemailtext"
+	        android:layout_below="@+id/eauemailedit"
+	        />
 	    
-	    <Button
-        android:id="@+id/eaueditusers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Edit User" 
-        android:layout_below="@+id/eauemailedit"
-        android:layout_toRightOf="@+id/eauemailtext"
-        />
-	    
+		    <Button
+	        android:id="@+id/eaueditusers"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/edituser" 
+	        android:layout_below="@+id/eauemailedit"
+	        android:layout_toRightOf="@+id/eauemailtext"
+	        />
 	 </RelativeLayout>
-
 </LinearLayout>

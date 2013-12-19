@@ -3,20 +3,15 @@ package com.SS.Main;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.NoHttpResponseException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONObject;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -192,15 +187,12 @@ public class SmartHomeSystemActivity extends Activity {
                     // Read in the response data to the buffer from the web server
                     in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
                         
-                    StringBuffer sb = new StringBuffer("");           // Set up some variables to
-                    String line = "";                                 // use for sorting through the data
-                    String NL = System.getProperty("line.separator");
-                    String IPString = null;
+                    String IPString = null;  // Set up some variables to
                     String IP = "fail";
                     
-                    // read through the redirect to find the IP
-                    while (!(line = in.readLine()).contentEquals("<meta name=\"description\" content=\"\">")){
-                       // Keep cycling
+                    String line = in.readLine();   // read through the redirect to find the IP
+                    while (!(line.contentEquals("<meta name=\"description\" content=\"\">"))){
+                    	line = in.readLine();
                     }
                     
                     
@@ -270,7 +262,7 @@ public class SmartHomeSystemActivity extends Activity {
                     
                     StringBuffer sb = new StringBuffer("");      // We will load the data into a string buffer
                     
-                    if(in == null){                              // if no response was recieved the we are 
+                    if(in.readLine() == null){                   // if no response was recieved the we are 
                         Values.DBconnection = false;             // unable to connect to  the web server
                         return "Database Unavialable";
                     }

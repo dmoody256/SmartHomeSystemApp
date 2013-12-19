@@ -12,20 +12,15 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.app.Activity;
-import android.content.CursorLoader;
 import android.content.Intent;
 import android.database.Cursor;
-import android.hardware.Camera.Parameters;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -404,8 +399,8 @@ public class HomeStatusActivity extends Activity{
                          * parsed and the correct data is then entered into the database.
                          */
                         try{
-                            String DBModNumber, DBModLocation, DBModRelayStatus,    // These strings are used to store
-                            String DBModManualStatus, DBModMSStatus, DBModSSStatus, // each of the mods corresponding
+                            String DBModNumber, DBModLocation, DBModRelayStatus;   // These strings are used to store
+                            String DBModManualStatus, DBModMSStatus, DBModSSStatus; // each of the mods corresponding
                             String DBModMSTimed;                                    // values to create insert string
                             String[] Mod;                                           // for the database
                          

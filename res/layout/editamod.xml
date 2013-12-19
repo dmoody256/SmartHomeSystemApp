@@ -2,30 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     android:orientation="vertical" 
     >
 
     <RelativeLayout
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
-	    android:layout_alignParentTop="true">
+	    >
 	    
 	    <Button
-        android:id="@+id/eamback"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="Back" />
+	        android:id="@+id/eamback"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentTop="true"
+	        android:text="@string/back" />
 
     	<Button
-        android:id="@+id/eamhome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:text="Home" />
+	        android:id="@+id/eamhome"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:layout_alignParentTop="true"
+	        android:text="@string/home" />
 	</RelativeLayout>
 	
 	<RelativeLayout
@@ -33,79 +32,64 @@
 	    android:layout_height="wrap_content"
 	    >
     
-    <TextView
-        android:id="@+id/eammodnumtext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Module Number" 
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        />
+	    <TextView
+	        android:id="@+id/eammodnumtext"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/modnum" 
+	        android:layout_centerHorizontal="true"
+	        android:layout_alignParentTop="true"/>
 
-    <TextView
-        android:id="@+id/eammodnumedit"
-        android:layout_width="175dp"
-        android:layout_height="wrap_content" 
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/eammodnumtext"
-        android:gravity="center"
-        android:editable="false"
-        >
+	    <EditText
+	        android:id="@+id/eammodnumedit"
+	        android:layout_width="175dp"
+	        android:layout_height="wrap_content" 
+	        android:layout_centerHorizontal="true"
+	        android:layout_below="@+id/eammodnumtext"
+	        android:gravity="center"
+	        android:inputType="none"/>
 
-        
-    </TextView>
+	    <TextView
+	        android:id="@+id/eamlocationtext"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/location" 
+	        android:layout_centerHorizontal="true"
+	        android:layout_below="@+id/eammodnumedit"/>
 
-    <TextView
-        android:id="@+id/eamlocationtext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Location" 
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/eammodnumedit"/>
-
-    <EditText
-        android:id="@+id/eamlocationedit"
-        android:layout_width="175dp"
-        android:layout_height="wrap_content" 
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/eamlocationtext"
-        android:maxLength="12"
-        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"/>
+	    <EditText
+	        android:id="@+id/eamlocationedit"
+	        android:layout_width="175dp"
+	        android:layout_height="wrap_content" 
+	        android:layout_centerHorizontal="true"
+	        android:layout_below="@+id/eamlocationtext"
+	        android:maxLength="12"
+	        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
+	        android:inputType="text"/>
     
-    
-
-    <CheckBox
+	    <CheckBox
 	        android:id="@+id/eammscheck"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_centerHorizontal="true"
 	        android:layout_below="@+id/eamlocationedit"
-	        android:text="Motion Controlled" />
-
-    
+	        android:text="@string/motcon" />
 
 	    <Button
-        android:id="@+id/eamdelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Delete Module" 
-        
-        android:layout_toLeftOf="@+id/eamlocationtext"
-        android:layout_below="@+id/eammscheck"
-        
-        />
+	        android:id="@+id/eamdelete"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/delmod" 
+	        android:layout_toLeftOf="@+id/eamlocationtext"
+	        android:layout_below="@+id/eammscheck"/>
 	    
 	    <Button
-        android:id="@+id/eameditusers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Edit User" 
-        android:layout_below="@+id/eammscheck"
-        android:layout_toRightOf="@+id/eamlocationtext"
-        />
-
-	    
+	        android:id="@+id/eameditusers"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/edituser" 
+	        android:layout_below="@+id/eammscheck"
+	        android:layout_toRightOf="@+id/eamlocationtext"/>
 	    
 	 </RelativeLayout>
-
 </LinearLayout>
