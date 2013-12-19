@@ -7,33 +7,33 @@
         android:id="@+id/modlistmodnumber"
         android:layout_width="30dip"
         android:layout_height="80dip"
-        android:textSize="13dip"
+        android:textSize="13sp"
          
         android:gravity="center"/>
        <TextView
         android:id="@+id/modlistlocation"
         android:layout_width="80dip"
         android:layout_height="80dip"
-        android:textSize="12dip" 
+        android:textSize="12sp" 
         android:gravity="center"/>
        <TextView
         android:id="@+id/modlistrelay"
         android:layout_width="60dip"
         android:layout_height="80dip"
-        android:textSize="9dip" 
+        android:textSize="12sp" 
         android:gravity="center"/>
        
        <TextView
         android:id="@+id/modlistms"
         android:layout_width="70dip"
         android:layout_height="80dip"
-        android:textSize="9dip" 
+        android:textSize="12sp" 
         android:gravity="center"/>
         <TextView
         android:id="@+id/modlistss"
         android:layout_width="80dip"
         android:layout_height="80dip"
-        android:textSize="9dip" 
+        android:textSize="12sp" 
         android:gravity="center"/>
        
 </LinearLayout>

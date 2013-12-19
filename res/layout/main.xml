@@ -6,8 +6,7 @@
     
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/mainlogintext"
@@ -16,7 +15,7 @@
             android:gravity="center"
             android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"
-            android:text="You are currently not logged in."
+            android:text="@string/nologin"
             android:textColor="#F8F8FF"
             android:textStyle="bold" />
 
@@ -26,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/mainlogintext"
-            android:text="Log In"
+            android:text="@string/login"
             android:background="@drawable/loginbutton"
             />
     </RelativeLayout>
@@ -43,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="Home Status" />
+            android:text="@string/homestatus" />
 
         <Button
             android:id="@+id/mainlogout"
@@ -51,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
-            android:text="Logout" />
+            android:text="@string/logout" />
 
         <Button
             android:id="@+id/mainuseradmin"
@@ -60,7 +59,7 @@
             android:layout_above="@+id/mainhomestatus"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="24dp"
-            android:text="User Administration" />
+            android:text="@string/useradmin" />
 
     </RelativeLayout>
 

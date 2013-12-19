@@ -2,14 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     android:orientation="vertical" >
     
     
     <RelativeLayout
 	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:layout_alignParentTop="true">
+	    android:layout_height="wrap_content">
 	    
 	    <Button
         android:id="@+id/flloginback"
@@ -17,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Back" />
+        android:text="@string/back" />
 
     	<Button
         android:id="@+id/flloginhome"
@@ -25,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:text="Home" />
+        android:text="@string/home" />
 	</RelativeLayout>
 	
     <RelativeLayout
@@ -35,33 +33,30 @@
 	    >
     	
         <TextView
-        android:id="@+id/flemailtext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="E-mail" 
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        />
+	        android:id="@+id/flemailtext"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/email" 
+	        android:layout_centerHorizontal="true"
+	        android:layout_alignParentTop="true"
+	        />
 
-    <EditText
-        android:id="@+id/flemailedit"
-        android:layout_width="175dp"
-        android:layout_height="wrap_content" 
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/flemailtext"
-        >
+	    <EditText
+	        android:id="@+id/flemailedit"
+	        android:layout_width="175dp"
+	        android:layout_height="wrap_content" 
+	        android:layout_centerHorizontal="true"
+	        android:layout_below="@+id/flemailtext"
+	        android:inputType="text"
+	        />
 
-        <requestFocus />
-
-    </EditText>
-
-    <Button
-        android:id="@+id/flsendlogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/flemailedit"
-        android:text="Send Login Info" />
+	    <Button
+	        android:id="@+id/flsendlogin"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+	        android:layout_below="@+id/flemailedit"
+	        android:text="@string/sendlogin" />
 	    
 	</RelativeLayout>
 

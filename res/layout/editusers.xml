@@ -2,13 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     android:orientation="vertical" >
 
     <RelativeLayout
 	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:layout_alignParentTop="true">
+	    android:layout_height="wrap_content" >
 	    
 	    <Button
         android:id="@+id/euback"
@@ -16,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Back" />
+        android:text="@string/back" />
 
     	<Button
         android:id="@+id/euhome"
@@ -24,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:text="Home" />
+        android:text="@string/home" />
     	
     	<TextView 
     	    android:id="@+id/eulistext"
@@ -34,7 +32,7 @@
     	    android:layout_below="@+id/euhome"
     	    android:layout_marginTop="20dp"
     	    android:gravity="center"
-    	    android:text="List of Current Users, Click a User to modify. The user at the top of the list is the master user."/>
+    	    android:text="@string/description"/>
 	</RelativeLayout>
     
 

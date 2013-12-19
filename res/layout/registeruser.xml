@@ -2,14 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     android:orientation="vertical" 
     >
 
     <RelativeLayout
 	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:layout_alignParentTop="true">
+	    android:layout_height="wrap_content">
 	    
 	    <Button
         android:id="@+id/ruback"
@@ -17,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Back" />
+        android:text="@string/back" />
 
     	<Button
         android:id="@+id/ruhome"
@@ -25,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:text="Home" />
+        android:text="@string/home" />
 	</RelativeLayout>
 	
 	<RelativeLayout
@@ -37,7 +35,7 @@
         android:id="@+id/ruusernametext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Username" 
+        android:text="@string/username" 
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         />
@@ -50,16 +48,17 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/ruusernametext"
         android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
-        >
+        android:inputType="text"
+        />
 
         <requestFocus />
-    </EditText>
+    
 
     <TextView
         android:id="@+id/rupasstext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password" 
+        android:text="@string/password" 
         
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/ruusernameedit"/>
@@ -71,13 +70,14 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/rupasstext"
         android:maxLength="12"
-        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"/>
+        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
+        android:inputType="text"/>
 
     <TextView
         android:id="@+id/ruemailtext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name" 
+        android:text="@string/name" 
        
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/rupassedit"/>
@@ -89,13 +89,14 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/ruemailtext"
          android:maxLength="25"
-        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"/>
+        android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
+        android:inputType="text"/>
 
 	    <Button
         android:id="@+id/rusubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register User Info" 
+        android:text="@string/reginfo" 
         
         android:layout_toLeftOf="@+id/ruemailtext"
         android:layout_below="@+id/ruemailedit"
@@ -106,7 +107,7 @@
         android:id="@+id/rueditusers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit Current Users" 
+        android:text="@string/editinfo" 
         android:layout_below="@+id/ruemailedit"
         android:layout_toRightOf="@+id/ruemailtext"
         />

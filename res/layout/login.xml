@@ -2,75 +2,66 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     android:orientation="vertical"
-    >
+    android:gravity="center"
+	 android:layout_centerInParent="true">
 
+	
+
+	
+	        <TextView
+	        android:id="@+id/logusernamedesc"
+	        style="@style/whitefont"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center"
+	        android:layout_marginTop="20dp"
+	        android:text="@string/username" />
+	
+	    <EditText
+	        android:id="@+id/logusernameedit"
+	        android:layout_width="wrap_content"
+	      	android:layout_gravity="center"
+	        android:layout_height="wrap_content"
+	        android:minWidth="200dp" 
+	        android:inputType="text"/>
+	   
+	
+	    <TextView
+	        android:id="@+id/logpassdesc"
+	        style="@style/whitefont"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center"
+	        android:layout_marginTop="10dp"
+	        android:text="@string/password" />
+	
+	    <EditText
+	        android:id="@+id/logpassedit"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:minWidth="200dp" 
+	        android:layout_gravity="center"
+	        android:inputType="text"/>
+	
+	    <Button
+	        android:id="@+id/logsubmit"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center"
+	        android:text="@string/submit" />
+	    
 	<RelativeLayout
 	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:layout_alignParentTop="true"
+	    android:layout_height="0dip"
 	    android:layout_weight="0.39" >
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_centerInParent="true"
-        
-        
-        >
-
-        <TextView
-        android:id="@+id/logusernamedesc"
-        style="@style/whitefont"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:text="Username" />
-
-    <EditText
-        android:id="@+id/logusernameedit"
-        android:layout_width="wrap_content"
-      	android:layout_gravity="center"
-        android:layout_height="wrap_content"
-        android:minWidth="200dp" >
-    </EditText>
-
-    <TextView
-        android:id="@+id/logpassdesc"
-        style="@style/whitefont"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:text="Password" />
-
-    <EditText
-        android:id="@+id/logpassedit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minWidth="200dp" 
-        android:layout_gravity="center"/>
-
-    <Button
-        android:id="@+id/logsubmit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Submit" />
-        
-    </LinearLayout>
-
     <Button
         android:id="@+id/logloginback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Back" />
+        android:text="@string/back" />
 
     <Button
         android:id="@+id/logloginhome"
@@ -78,22 +69,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:text="Home" />
+        android:text="@string/home" />
 
     </RelativeLayout>
     
-
-
-
-
-
-
-    <RelativeLayout
-        
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true" >
-			
-    </RelativeLayout>
 
 </LinearLayout>
